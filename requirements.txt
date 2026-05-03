@@ -1,0 +1,9 @@
+streamlit
+opencv-python
+deepface
+mediapipe
+numpy
+pandas
+requests
+pygame
+tensorflow

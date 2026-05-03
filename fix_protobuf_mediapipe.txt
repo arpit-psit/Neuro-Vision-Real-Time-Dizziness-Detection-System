@@ -1,0 +1,35 @@
+@echo off
+echo ============================================
+echo     SMART EMOTION TRACKER AUTO FIXER
+echo ============================================
+echo.
+
+echo [1] Closing all VS Code processes...
+taskkill /F /IM Code.exe >nul 2>&1
+
+echo [2] Activating virtual environment...
+call .\venv\Scripts\activate
+
+echo [3] Uninstalling broken protobuf...
+pip uninstall protobuf -y
+
+echo [4] Installing compatible protobuf version (3.20.3)...
+pip install protobuf==3.20.3
+
+echo [5] Installing correct mediapipe version (0.10.9)...
+pip install mediapipe==0.10.9
+
+echo [6] Verifying installation...
+pip show protobuf
+pip show mediapipe
+
+echo.
+echo ============================================
+echo        FIX COMPLETE — ALL GOOD NOW!
+echo ============================================
+echo Now you can open VS Code and run:
+echo    py camera_stream.py
+echo OR press CTRL + F5 in VS Code.
+echo.
+pause
+
